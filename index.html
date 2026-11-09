@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5ed" />
+    <meta name="description" content="ECOFLUX: supervisión clara de clima, agua y energía." />
+    <title>ECOFLUX · Plataforma</title>
+    <link rel="icon" href="assets/icons/wind.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="src/styles/tokens.css" />
+    <link rel="stylesheet" href="src/styles/app.css" />
+    <script defer src="src/scripts/simulator.js"></script>
+    <script defer src="src/scripts/app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" data-screen-link="inicio" aria-label="ECOFLUX, ir a inicio">
+          <span class="brand-mark"><img src="assets/icons/wind.svg" alt="" /></span>
+          <span>ECOFLUX</span>
+        </a>
+
+        <section class="farm-space" aria-label="Espacio actual">
+          <span class="eyebrow">TU ESPACIO</span>
+          <strong id="farm-name-sidebar">Mi finca</strong>
+          <span>Enfriamiento sostenible</span>
+        </section>
+
+        <nav class="main-nav">
+          <button class="nav-item is-active" type="button" data-screen="inicio"><img src="assets/icons/cab91.svg" alt="" /><span>Inicio</span></button>
+          <button class="nav-item" type="button" data-screen="historial"><img src="assets/icons/63857.svg" alt="" /><span>Historial</span></button>
+          <button class="nav-item" type="button" data-screen="alertas"><img src="assets/icons/b0eb9.svg" alt="" /><span>Alertas</span><span class="nav-count" id="nav-alert-count" hidden>0</span></button>
+          <button class="nav-item" type="button" data-screen="aira"><img src="assets/icons/81ca0.svg" alt="" /><span>AIRA</span></button>
+        </nav>
+
+        <div class="technical-nav">
+          <span class="eyebrow">SOLO PARA REVISIÓN TÉCNICA</span>
+          <button class="nav-item" type="button" data-screen="diagnostico"><img src="assets/icons/4749a.svg" alt="" /><span>Diagnóstico</span></button>
+        </div>
+
+        <div class="sidebar-note">
+          <img src="assets/icons/aaa83.svg" alt="" />
+          <strong>Cuidar tu finca, con claridad.</strong>
+          <span>Agua, aire y sol en un mismo lugar.</span>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="farm-title">
+            <strong id="farm-name-top">Mi finca</strong>
+            <button class="text-button edit-farm" type="button" id="edit-farm"><img src="assets/icons/6c93b.svg" alt="" /><span>Editar nombre</span></button>
+          </div>
+          <div class="topbar-status">
+            <span class="mode-badge" id="demo-badge" hidden><span class="status-dot"></span>SIMULACIÓN</span>
+            <span class="connection-chip" id="connection-chip"><img src="assets/icons/6420c.svg" alt="" /><span>Sin conexión</span></span>
+          </div>
+        </header>
+
+        <section class="page-content" id="page-content" aria-live="polite"></section>
+
+        <nav class="mobile-nav" aria-label="Navegación móvil">
+          <button class="mobile-nav-item is-active" type="button" data-screen="inicio"><img src="assets/icons/cab91.svg" alt="" /><span>Inicio</span></button>
+          <button class="mobile-nav-item" type="button" data-screen="historial"><img src="assets/icons/63857.svg" alt="" /><span>Historial</span></button>
+          <button class="mobile-nav-item" type="button" data-screen="alertas"><img src="assets/icons/b0eb9.svg" alt="" /><span>Alertas</span></button>
+          <button class="mobile-nav-item" type="button" data-screen="aira"><img src="assets/icons/81ca0.svg" alt="" /><span>AIRA</span></button>
+        </nav>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
