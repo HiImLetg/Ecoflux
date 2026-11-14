@@ -1,0 +1,21 @@
+add sensor temperatura interior y exterior
+add QA y accesibilidad
+controlar consumo de corriente de las bombas, baterias y paneles solares , ventiladores group
+control de nivel por bollas en top and bottom
+sensor ultrasonico sumergibles //  hacer grafica dinamica por cada tanque con los niveles del agua
+controlador MTTP controla corriente de paneles solares, interruptor como bateria apartado on / off, canva MTTP luz de indicador
+FIx chat de voz con AIRA
+sistema de confirmacion de apagado por alerta
+remover electro valvula
+añadir control de temperatura por computadora
+implementar menu de seleccion de uso (Agropecuario, Pollos, Chanchos, Ganaderia Vacas, Control de casa )
+eje central ods energia y consumo eficiente
+consumo mensual de energia 
+hacer estudios  de uso vs sin uso
+
+
+anadir area visual de control de bombas y ventiladores y maquetado
+calcular medidas de los tanques y capacidad de almacenamiento
+establecer configuracion personalizada para cada sensor 
+anadir menu interactivo para seleccion de finca
+simplificar menu a solo iconos para mejora de vista

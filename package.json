@@ -1,0 +1,11 @@
+{
+  "name": "ecoflux-platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "api": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

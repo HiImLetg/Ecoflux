@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title description">
+  <title id="title">ECOFLUX: agua, energía y enfriamiento sostenible</title>
+  <desc id="description">Infografía del proyecto ECOFLUX con ODS 7 como eje, capa analógica existente, plataforma digital propuesta, aplicaciones agropecuarias y metodología Design Thinking.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6F6EE"/><stop offset="1" stop-color="#E9F2E8"/></linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123F34"/><stop offset="1" stop-color="#1E6652"/></linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#49C3C8"/><stop offset="1" stop-color="#147F91"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#153A30" flood-opacity=".08"/></filter>
+    <style>
+      text{font-family:Inter,Arial,sans-serif;fill:#173A33} .white{fill:#fff}.muted{fill:#64766D}.tiny{font-size:17px}.small{font-size:19px}.body{font-size:22px}.h2{font-size:30px;font-weight:750}.label{font-size:17px;font-weight:750;letter-spacing:1.5px}.card{fill:#fff;stroke:#D8E2D9;stroke-width:2}.round{rx:24}
+    </style>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="1006" cy="84" r="148" fill="#DCEBE0" opacity=".6"/><circle cx="1004" cy="84" r="94" fill="none" stroke="#B7D1C0" stroke-width="2" opacity=".65"/>
+
+  <!-- Brand and headline -->
+  <g transform="translate(64 54)">
+    <rect width="54" height="54" rx="16" fill="#1D6A52"/>
+    <path d="M13 27h26M19 19c9-9 17-4 17 0M19 35c9 9 17 4 17 0" fill="none" stroke="#DFF5E8" stroke-width="3" stroke-linecap="round"/>
+    <text x="70" y="37" font-size="31" font-weight="800" letter-spacing="1.4">ECOFLUX</text>
+    <text x="950" y="32" text-anchor="end" class="label" fill="#5C7569">PROYECTO SOSTENIBLE</text>
+  </g>
+  <text x="64" y="174" font-size="56" font-weight="800" letter-spacing="-1.2">Agua, energía y enfriamiento</text>
+  <text x="64" y="238" font-size="56" font-weight="800" letter-spacing="-1.2">inteligente para el campo</text>
+  <text x="67" y="282" class="body muted">Una plataforma clara que acompaña el sistema analógico y acerca sus datos</text>
+  <text x="67" y="311" class="body muted">a quienes cuidan viviendas, cultivos y espacios pecuarios.</text>
+
+  <!-- SDG axis -->
+  <g filter="url(#shadow)">
+    <rect x="64" y="352" width="952" height="196" rx="30" fill="url(#hero)"/>
+  </g>
+  <rect x="94" y="382" width="82" height="82" rx="20" fill="#F5C84C"/>
+  <text x="135" y="437" text-anchor="middle" font-size="44" font-weight="850" fill="#183C34">7</text>
+  <text x="200" y="408" class="label" fill="#AFE5C7">EJE CENTRAL · ODS 7</text>
+  <text x="200" y="451" font-size="34" font-weight="750" class="white">Energía asequible y no contaminante</text>
+  <text x="96" y="493" font-size="21" fill="#E3F1E8">Monitoreo de energía solar, consumo y enfriamiento para apoyar decisiones</text>
+  <text x="96" y="520" font-size="21" fill="#E3F1E8">sostenibles en viviendas y espacios agropecuarios.</text>
+  <g font-size="17" font-weight="700">
+    <rect x="64" y="570" width="212" height="44" rx="22" fill="#D9EAF6"/><text x="170" y="598" text-anchor="middle" fill="#1D5C85">ODS 6 · Agua</text>
+    <rect x="292" y="570" width="220" height="44" rx="22" fill="#DDEDE3"/><text x="402" y="598" text-anchor="middle" fill="#28694F">ODS 13 · Clima</text>
+    <rect x="528" y="570" width="276" height="44" rx="22" fill="#F5E8C9"/><text x="666" y="598" text-anchor="middle" fill="#8E6509">ODS 12 · Consumo responsable</text>
+  </g>
+
+  <!-- Existing analog layer -->
+  <text x="64" y="681" class="label" fill="#608071">01 · LO QUE YA EXISTE</text>
+  <text x="64" y="720" class="h2">La capa analógica mantiene el control local</text>
+  <rect x="64" y="748" width="952" height="180" rx="26" class="card" filter="url(#shadow)"/>
+  <g font-size="19" font-weight="700" text-anchor="middle">
+    <rect x="92" y="782" width="184" height="88" rx="18" fill="#E8F2E8" stroke="#BDD5C5"/><text x="184" y="818">Sensor NTC</text><text x="184" y="847" class="small muted" font-weight="500">mide temperatura</text>
+    <path d="M282 826h40m-10-9 10 9-10 9" stroke="#749487" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="334" y="782" width="184" height="88" rx="18" fill="#E8F2E8" stroke="#BDD5C5"/><text x="426" y="818">LM358</text><text x="426" y="847" class="small muted" font-weight="500">umbral analógico</text>
+    <path d="M524 826h40m-10-9 10 9-10 9" stroke="#749487" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="576" y="782" width="184" height="88" rx="18" fill="#E8F2E8" stroke="#BDD5C5"/><text x="668" y="818">MOSFET</text><text x="668" y="847" class="small muted" font-weight="500">etapa de potencia</text>
+    <path d="M766 826h40m-10-9 10 9-10 9" stroke="#749487" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="818" y="782" width="170" height="88" rx="18" fill="#E8F2E8" stroke="#BDD5C5"/><text x="903" y="818">Actuadores</text><text x="903" y="847" class="small muted" font-weight="500">respuesta local</text>
+  </g>
+  <text x="92" y="902" class="small" fill="#386B54">La capa digital observa y acompaña; las protecciones y el control físico siguen en la electrónica.</text>
+
+  <!-- Digital bridge -->
+  <text x="64" y="990" class="label" fill="#608071">02 · LA INNOVACIÓN DIGITAL</text>
+  <text x="64" y="1029" class="h2">Una vista sencilla para entender el sistema</text>
+  <rect x="64" y="1056" width="952" height="274" rx="26" fill="#F1F0FF" stroke="#D7D2F0" stroke-width="2" filter="url(#shadow)"/>
+  <g text-anchor="middle">
+    <text x="178" y="1095" class="label" fill="#655CA4">DATOS</text>
+    <text x="437" y="1095" class="label" fill="#655CA4">PUENTE IOT</text>
+    <text x="698" y="1095" class="label" fill="#655CA4">PLATAFORMA</text>
+    <text x="912" y="1095" class="label" fill="#655CA4">AIRA</text>
+    <rect x="92" y="1118" width="172" height="132" rx="18" fill="#fff" stroke="#DAD6EF"/>
+    <text x="178" y="1154" font-size="20" font-weight="750">Sensores</text><text x="178" y="1184" class="small muted">Temperatura</text><text x="178" y="1212" class="small muted">Agua · energía</text>
+    <path d="M270 1184h42m-10-9 10 9-10 9" stroke="#827CB5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="324" y="1118" width="224" height="132" rx="18" fill="#51488E"/>
+    <text x="436" y="1162" font-size="27" font-weight="800" class="white">ESP32</text><text x="436" y="1194" class="small" fill="#E5E1FF">telemetría · Wi-Fi</text><text x="436" y="1221" class="tiny" fill="#D4D0F2">integración por realizar</text>
+    <path d="M554 1184h42m-10-9 10 9-10 9" stroke="#827CB5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="608" y="1118" width="180" height="132" rx="18" fill="#fff" stroke="#DAD6EF"/>
+    <text x="698" y="1154" font-size="20" font-weight="750">Web adaptable</text><text x="698" y="1184" class="small muted">PC y móvil</text><text x="698" y="1212" class="small muted">Gráficos y alertas</text>
+    <path d="M794 1184h38m-10-9 10 9-10 9" stroke="#827CB5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="844" y="1118" width="144" height="132" rx="18" fill="#DDF1E7" stroke="#B8D9C8"/>
+    <text x="916" y="1154" font-size="23" font-weight="800">AIRA</text><text x="916" y="1184" class="small muted">Claude + OpenAI</text><text x="916" y="1212" class="tiny muted">voz IA · no controla</text>
+  </g>
+  <text x="94" y="1295" class="small" fill="#56518B">Predicciones como herramientas separadas: “calibrando” hasta probar algoritmos con mediciones reales.</text>
+
+  <!-- Agriculture -->
+  <text x="64" y="1391" class="label" fill="#608071">03 · APLICACIÓN AGROPECUARIA</text>
+  <text x="64" y="1430" class="h2">De la vivienda piloto a la finca</text>
+  <g filter="url(#shadow)">
+    <rect x="64" y="1458" width="300" height="198" rx="24" class="card"/>
+    <rect x="390" y="1458" width="300" height="198" rx="24" class="card"/>
+    <rect x="716" y="1458" width="300" height="198" rx="24" class="card"/>
+  </g>
+  <!-- water icon -->
+  <path d="M110 1502c-10 15-17 24-17 34a18 18 0 0 0 36 0c0-10-8-21-19-34Z" fill="url(#water)"/>
+  <text x="153" y="1515" font-size="22" font-weight="750">Agua</text><text x="92" y="1555" class="small muted">Visualizar niveles de cisterna</text><text x="92" y="1582" class="small muted">y tanque; apoyar riego y</text><text x="92" y="1609" class="small muted">gestión hídrica informada.</text>
+  <!-- sun icon -->
+  <circle cx="437" cy="1518" r="16" fill="#F2B936"/><g stroke="#F2B936" stroke-width="3" stroke-linecap="round"><path d="M437 1488v-9M437 1557v-9M407 1518h-9M476 1518h-9M416 1497l-7-7M465 1546l-7-7M458 1497l7-7M409 1546l7-7"/></g>
+  <text x="480" y="1515" font-size="22" font-weight="750">Energía</text><text x="418" y="1555" class="small muted">Observar generación solar,</text><text x="418" y="1582" class="small muted">batería y consumo de cargas</text><text x="418" y="1609" class="small muted">para detectar oportunidades.</text>
+  <!-- climate icon -->
+  <path d="M758 1517h42c16 0 16-19 1-19-5 0-8 2-10 6M758 1532h54c15 0 15 17 1 17-5 0-8-2-10-5M758 1502h20" fill="none" stroke="#348C77" stroke-width="4" stroke-linecap="round"/>
+  <text x="826" y="1515" font-size="22" font-weight="750">Clima y bienestar</text><text x="744" y="1555" class="small muted">Seguir temperatura y humedad</text><text x="744" y="1582" class="small muted">en galpones o áreas de cultivo,</text><text x="744" y="1609" class="small muted">con alertas comprensibles.</text>
+
+  <!-- Method and status -->
+  <rect x="64" y="1690" width="952" height="150" rx="26" fill="#E1EEE4" stroke="#C5DACB" stroke-width="2"/>
+  <text x="94" y="1731" class="label" fill="#3F765B">CÓMO LO DISEÑAMOS · DESIGN THINKING</text>
+  <g text-anchor="middle" font-size="18" font-weight="700">
+    <rect x="94" y="1754" width="156" height="52" rx="16" fill="#fff"/><text x="172" y="1787">Empatizar</text>
+    <path d="M258 1780h32m-9-8 9 8-9 8" stroke="#78A18A" stroke-width="3" fill="none"/>
+    <rect x="300" y="1754" width="156" height="52" rx="16" fill="#fff"/><text x="378" y="1787">Definir</text>
+    <path d="M464 1780h32m-9-8 9 8-9 8" stroke="#78A18A" stroke-width="3" fill="none"/>
+    <rect x="506" y="1754" width="156" height="52" rx="16" fill="#fff"/><text x="584" y="1787">Idear</text>
+    <path d="M670 1780h32m-9-8 9 8-9 8" stroke="#78A18A" stroke-width="3" fill="none"/>
+    <rect x="712" y="1754" width="128" height="52" rx="16" fill="#fff"/><text x="776" y="1787">Prototipar</text>
+    <path d="M848 1780h27m-9-8 9 8-9 8" stroke="#78A18A" stroke-width="3" fill="none"/>
+    <rect x="882" y="1754" width="104" height="52" rx="16" fill="#fff"/><text x="934" y="1787">Probar</text>
+  </g>
+  <rect x="64" y="1860" width="12" height="12" rx="6" fill="#E1A826"/>
+  <text x="88" y="1872" font-size="17" class="muted">Etapa actual: base digital en preparación · integración física y validación de mediciones pendientes.</text>
+  <text x="1016" y="1910" text-anchor="end" font-size="15" fill="#7C8C82">ECOFLUX · Agua, aire y energía en un mismo lugar</text>
+</svg>

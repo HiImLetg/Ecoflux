@@ -14,6 +14,9 @@
   --ink-muted: #65736b;
   --green: #24634b;
   --green-deep: #173f34;
+  --green-hover: #1e533f;
+  --surface-hover: #f4f7f3;
+  --focus-ring: #6ab0a2;
   --teal: #12676d;
   --warning: #805c13;
   --danger: #a03931;
@@ -26,3 +29,6 @@
   --sidebar-width: 216px;
   --font: Inter, "Segoe UI", Arial, sans-serif;
 }
+body[data-theme="poultry"] { --canvas:#FFF8E9; --green:#A77308; --green-deep:#684708; --green-hover:#805500; --surface-hover:#FBF0D1; --surface-soft:#FBF0D1; --teal:#91650A; --ink:#4B380C; --focus-ring:#C99119; }
+body[data-theme="porcine"] { --canvas:#F8F0ED; --green:#A35242; --green-deep:#68392F; --green-hover:#874237; --surface-hover:#F7EAE6; --surface-soft:#F5E6E1; --teal:#8F5144; --ink:#4B302C; --focus-ring:#C37B6C; }
+body[data-theme="livestock"] { --canvas:#F1F7F8; --green:#2D7184; --green-deep:#234D5A; --green-hover:#245D6D; --surface-hover:#E7F1F3; --surface-soft:#E2EFF2; --teal:#256F84; --ink:#23424A; --focus-ring:#5B9BAC; }

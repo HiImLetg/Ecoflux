@@ -10,15 +10,20 @@
     <link rel="stylesheet" href="src/styles/tokens.css" />
     <link rel="stylesheet" href="src/styles/app.css" />
     <script defer src="src/scripts/simulator.js"></script>
+    <script defer src="src/scripts/prediction-tools.js"></script>
+    <script defer src="src/scripts/farm-config.js"></script>
     <script defer src="src/scripts/app.js"></script>
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar" aria-label="Navegación principal">
-        <a class="brand" href="#inicio" data-screen-link="inicio" aria-label="ECOFLUX, ir a inicio">
-          <span class="brand-mark"><img src="assets/icons/wind.svg" alt="" /></span>
-          <span>ECOFLUX</span>
-        </a>
+        <div class="brand-row">
+          <a class="brand" href="#inicio" data-screen-link="inicio" aria-label="ECOFLUX, ir a inicio">
+            <span class="brand-mark"><img src="assets/icons/wind.svg" alt="" /></span>
+            <span>ECOFLUX</span>
+          </a>
+          <button class="sidebar-collapse-button" id="sidebar-collapse" type="button" aria-label="Contraer menú lateral" aria-controls="main-navigation" aria-expanded="true" title="Contraer menú lateral"><span aria-hidden="true">‹</span></button>
+        </div>
 
         <section class="farm-space" aria-label="Espacio actual">
           <span class="eyebrow">TU ESPACIO</span>
@@ -26,16 +31,20 @@
           <span>Enfriamiento sostenible</span>
         </section>
 
-        <nav class="main-nav">
-          <button class="nav-item is-active" type="button" data-screen="inicio"><img src="assets/icons/cab91.svg" alt="" /><span>Inicio</span></button>
-          <button class="nav-item" type="button" data-screen="historial"><img src="assets/icons/63857.svg" alt="" /><span>Historial</span></button>
-          <button class="nav-item" type="button" data-screen="alertas"><img src="assets/icons/b0eb9.svg" alt="" /><span>Alertas</span><span class="nav-count" id="nav-alert-count" hidden>0</span></button>
-          <button class="nav-item" type="button" data-screen="aira"><img src="assets/icons/81ca0.svg" alt="" /><span>AIRA</span></button>
+        <nav class="main-nav" id="main-navigation">
+          <button class="nav-item" type="button" data-screen="fincas" aria-label="Mis fincas" title="Mis fincas"><img src="assets/icons/wind.svg" alt="" /><span>Mis fincas</span></button>
+          <button class="nav-item" type="button" data-screen="inicio" aria-label="Inicio" title="Inicio"><img src="assets/icons/cab91.svg" alt="" /><span>Inicio</span></button>
+          <button class="nav-item" type="button" data-screen="historial" aria-label="Historial" title="Historial"><img src="assets/icons/63857.svg" alt="" /><span>Historial</span></button>
+          <button class="nav-item" type="button" data-screen="alertas" aria-label="Alertas" title="Alertas"><img src="assets/icons/b0eb9.svg" alt="" /><span>Alertas</span><span class="nav-count" id="nav-alert-count" hidden>0</span></button>
+          <button class="nav-item" type="button" data-screen="aira" aria-label="AIRA" title="AIRA"><img src="assets/icons/81ca0.svg" alt="" /><span>AIRA</span></button>
+          <button class="nav-item" type="button" data-screen="equipos" aria-label="Bombas y ventiladores" title="Bombas y ventiladores"><img src="assets/icons/8be6d.svg" alt="" /><span>Bombas y ventiladores</span></button>
+          <button class="nav-item" type="button" data-screen="pruebas" aria-label="Pruebas locales" title="Pruebas locales"><img src="assets/icons/3e417.svg" alt="" /><span>Pruebas locales</span></button>
         </nav>
 
         <div class="technical-nav">
           <span class="eyebrow">SOLO PARA REVISIÓN TÉCNICA</span>
-          <button class="nav-item" type="button" data-screen="diagnostico"><img src="assets/icons/4749a.svg" alt="" /><span>Diagnóstico</span></button>
+          <button class="nav-item" type="button" data-screen="configuracion" aria-label="Configuración técnica" title="Configuración técnica"><img src="assets/icons/141f0.svg" alt="" /><span>Configuración técnica</span></button>
+          <button class="nav-item" type="button" data-screen="diagnostico" aria-label="Diagnóstico" title="Diagnóstico"><img src="assets/icons/4749a.svg" alt="" /><span>Diagnóstico</span></button>
         </div>
 
         <div class="sidebar-note">
@@ -48,11 +57,14 @@
       <main class="main-area">
         <header class="topbar">
           <div class="farm-title">
-            <strong id="farm-name-top">Mi finca</strong>
+            <button class="button farms-return-button" id="back-to-farms" type="button" data-screen="fincas"><img src="assets/icons/wind.svg" alt="" /><span>Mis fincas</span></button>
+            <strong id="farm-name-top">Mis fincas</strong>
+            <span class="farm-type-pill" id="farm-type-label" hidden></span>
             <button class="text-button edit-farm" type="button" id="edit-farm"><img src="assets/icons/6c93b.svg" alt="" /><span>Editar nombre</span></button>
           </div>
-          <div class="topbar-status">
-            <span class="mode-badge" id="demo-badge" hidden><span class="status-dot"></span>SIMULACIÓN</span>
+          <div class="topbar-status" id="topbar-status">
+            <span class="mode-badge" id="demo-badge" hidden>PRUEBA LOCAL</span>
+            <span class="mppt-status-chip" id="mppt-status-chip" data-state="unknown"><span class="status-dot"></span><span>MPPT · Sin dato</span></span>
             <span class="connection-chip" id="connection-chip"><img src="assets/icons/6420c.svg" alt="" /><span>Sin conexión</span></span>
           </div>
         </header>
@@ -60,10 +72,13 @@
         <section class="page-content" id="page-content" aria-live="polite"></section>
 
         <nav class="mobile-nav" aria-label="Navegación móvil">
-          <button class="mobile-nav-item is-active" type="button" data-screen="inicio"><img src="assets/icons/cab91.svg" alt="" /><span>Inicio</span></button>
-          <button class="mobile-nav-item" type="button" data-screen="historial"><img src="assets/icons/63857.svg" alt="" /><span>Historial</span></button>
-          <button class="mobile-nav-item" type="button" data-screen="alertas"><img src="assets/icons/b0eb9.svg" alt="" /><span>Alertas</span></button>
-          <button class="mobile-nav-item" type="button" data-screen="aira"><img src="assets/icons/81ca0.svg" alt="" /><span>AIRA</span></button>
+          <button class="mobile-nav-item is-active" type="button" data-screen="inicio" aria-label="Inicio" title="Inicio"><img src="assets/icons/cab91.svg" alt="" /></button>
+          <button class="mobile-nav-item" type="button" data-screen="equipos" aria-label="Bombas y ventiladores" title="Bombas y ventiladores"><img src="assets/icons/8be6d.svg" alt="" /></button>
+          <button class="mobile-nav-item" type="button" data-screen="pruebas" aria-label="Pruebas locales" title="Pruebas locales"><img src="assets/icons/3e417.svg" alt="" /></button>
+          <button class="mobile-nav-item" type="button" data-screen="historial" aria-label="Historial" title="Historial"><img src="assets/icons/63857.svg" alt="" /></button>
+          <button class="mobile-nav-item" type="button" data-screen="alertas" aria-label="Alertas" title="Alertas"><img src="assets/icons/b0eb9.svg" alt="" /></button>
+          <button class="mobile-nav-item" type="button" data-screen="aira" aria-label="AIRA" title="AIRA"><img src="assets/icons/81ca0.svg" alt="" /></button>
+          <button class="mobile-nav-item" type="button" data-screen="configuracion" aria-label="Configuración técnica" title="Configuración técnica"><img src="assets/icons/141f0.svg" alt="" /></button>
         </nav>
       </main>
     </div>
