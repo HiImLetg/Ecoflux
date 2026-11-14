@@ -6,6 +6,7 @@
   const farmProfiles = window.EcofluxFarmConfig.profiles;
   const AIRA_API = "http://127.0.0.1:8787/api";
   const content = $("#page-content");
+  let pendingDeleteFarmId = null;
 
   const format = (value, digits = 0) => value == null || Number.isNaN(Number(value)) ? "—" : Number(value).toFixed(digits);
   const activeFarm = () => app.settings.farms.find((farm) => farm.id === app.settings.activeFarmId) || null;
@@ -176,7 +177,7 @@
     const farmCards = farms.length ? farms.map((farm) => {
       const profile = farmProfiles[farm.type];
       const isActive = farm.id === app.settings.activeFarmId;
-      return `<article class="farm-list-card theme-${profile.theme}"><div class="farm-list-icon">${profileIcons[farm.type]}</div><div class="farm-list-copy"><span class="eyebrow">${profile.label}</span><h3>${escapeHtml(farm.name)}</h3><p>${profile.note}</p></div><div class="farm-list-actions">${isActive ? '<span class="farm-active-pill">Abierta</span>' : ""}<button class="button button-primary" type="button" data-open-farm="${escapeHtml(farm.id)}">${isActive ? "Entrar" : "Abrir finca"}</button></div></article>`;
+      return `<article class="farm-list-card theme-${profile.theme}"><div class="farm-list-icon">${profileIcons[farm.type]}</div><div class="farm-list-copy"><span class="eyebrow">${profile.label}</span><h3>${escapeHtml(farm.name)}</h3><p>${profile.note}</p></div><div class="farm-list-actions">${isActive ? '<span class="farm-active-pill">Abierta</span>' : ""}<button class="button button-primary" type="button" data-open-farm="${escapeHtml(farm.id)}">${isActive ? "Entrar" : "Abrir finca"}</button><button class="text-button farm-delete-button" type="button" data-delete-farm="${escapeHtml(farm.id)}">Eliminar</button></div></article>`;
     }).join("") : `<div class="empty-state farm-empty"><strong>Aún no tienes fincas</strong><p>Crea la primera con su nombre y actividad para preparar su espacio de trabajo.</p></div>`;
     return `<div class="farms-welcome"><p class="page-kicker">ECOFLUX · ESPACIOS DE TRABAJO</p><h1>Mis fincas</h1><p>Organiza cada espacio por separado y entra directamente a sus datos y herramientas.</p></div>
       <section class="surface-card section-card create-farm-section"><div><h2>Añadir una finca</h2><p class="section-subtitle">Ponle un nombre y selecciona el tipo de espacio.</p></div><form id="create-farm-form" class="create-farm-form"><label>Nombre de la finca<input name="name" maxlength="40" required placeholder="Ej. Granja El Porvenir" /></label><label>Tipo de finca<select name="type" required>${profiles.map(([key, profile]) => `<option value="${key}">${profile.label}</option>`).join("")}</select></label><button class="button button-primary" type="submit">Crear y entrar</button></form></section>
@@ -514,6 +515,32 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  function requestFarmDeletion(id) {
+    const farm = app.settings.farms.find((item) => item.id === id);
+    const dialog = $("#delete-farm-dialog");
+    if (!farm || !dialog) return;
+    pendingDeleteFarmId = id;
+    $("#delete-farm-name").textContent = farm.name;
+    dialog.showModal();
+    $("#cancel-delete-farm").focus();
+  }
+
+  function deleteFarm(id) {
+    const farm = app.settings.farms.find((item) => item.id === id);
+    if (!farm) return;
+    const wasActive = farm.id === app.settings.activeFarmId;
+    app.settings.farms = app.settings.farms.filter((item) => item.id !== id);
+    if (wasActive) {
+      app.settings.activeFarmId = null;
+      app.settings.profile = "vivienda";
+      app.screen = "fincas";
+      window.EcofluxSimulator.reset();
+    }
+    saveSettings();
+    render();
+    toast(`Se eliminó ${farm.name}.`);
+  }
+
   function saveTechnicalConfiguration(event) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -583,11 +610,28 @@
     }
     const openFarmButton = event.target.closest("[data-open-farm]");
     if (openFarmButton) openFarm(openFarmButton.dataset.openFarm);
+    const deleteFarmButton = event.target.closest("[data-delete-farm]");
+    if (deleteFarmButton) requestFarmDeletion(deleteFarmButton.dataset.deleteFarm);
+    if (event.target.closest("#cancel-delete-farm")) {
+      pendingDeleteFarmId = null;
+      $("#delete-farm-dialog").close();
+    }
+    if (event.target.closest("#confirm-delete-farm")) {
+      const id = pendingDeleteFarmId;
+      pendingDeleteFarmId = null;
+      $("#delete-farm-dialog").close();
+      if (id) deleteFarm(id);
+    }
     if (event.target.closest("#edit-farm")) {
       const name = window.prompt("¿Cómo se llama tu finca?", $("#farm-name-top").textContent);
       if (name !== null) setFarmName(name);
     }
   });
+
+  $("#delete-farm-dialog").addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) event.currentTarget.close();
+  });
+  $("#delete-farm-dialog").addEventListener("close", () => { pendingDeleteFarmId = null; });
 
   applyProfile();
   checkAiraConnection();

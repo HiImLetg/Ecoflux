@@ -82,6 +82,18 @@
         </nav>
       </main>
     </div>
+    <dialog class="confirm-dialog" id="delete-farm-dialog" aria-labelledby="delete-farm-title" aria-describedby="delete-farm-description">
+      <div class="confirm-dialog-card">
+        <span class="confirm-dialog-icon" aria-hidden="true">!</span>
+        <p class="eyebrow">GESTIÓN DE FINCAS</p>
+        <h2 id="delete-farm-title">¿Eliminar esta finca?</h2>
+        <p id="delete-farm-description">Se eliminará <strong id="delete-farm-name"></strong> y su configuración guardada en este navegador. Esta acción no se puede deshacer.</p>
+        <div class="confirm-dialog-actions">
+          <button class="button" id="cancel-delete-farm" type="button">Conservar finca</button>
+          <button class="button button-danger" id="confirm-delete-farm" type="button">Eliminar finca</button>
+        </div>
+      </div>
+    </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
 </html>

@@ -85,6 +85,19 @@ body[data-menu="collapsed"] .sidebar-collapse-button { width:20px; height:30px; 
 .farm-list-copy h3 { margin:4px 0; color:var(--ink-strong); font-size:17px; }
 .farm-list-copy p { margin:0; color:var(--ink-muted); font-size:12px; }
 .farm-list-actions { display:flex; align-items:center; gap:10px; }
+.farm-delete-button { min-height:40px; padding:8px 11px; border:1px solid #e7c9c4; border-radius:10px; background:#fff9f8; color:var(--danger); font-size:12px; font-weight:700; white-space:nowrap; transition:background .16s ease,border-color .16s ease; }
+.farm-delete-button:hover { border-color:#d99e94; background:#fcebe8; color:#8d2727; }
+.confirm-dialog { width:min(460px,calc(100vw - 32px)); max-width:none; padding:0; overflow:visible; border:0; border-radius:22px; background:transparent; color:var(--ink-strong); box-shadow:0 24px 80px #102b2240; }
+.confirm-dialog::backdrop { background:#10221ccc; backdrop-filter:blur(3px); }
+.confirm-dialog-card { padding:30px; border:1px solid var(--line); border-radius:22px; background:var(--surface); }
+.confirm-dialog-icon { display:grid; width:46px; height:46px; place-items:center; margin-bottom:18px; border-radius:15px; background:#fcebe8; color:var(--danger); font-size:24px; font-weight:800; }
+.confirm-dialog-card .eyebrow { margin:0 0 7px; color:var(--ink-muted); font-size:10px; font-weight:800; letter-spacing:.08em; }
+.confirm-dialog-card h2 { margin:0; color:var(--ink-strong); font-size:22px; }
+.confirm-dialog-card > p:last-of-type { margin:12px 0 24px; color:var(--ink-muted); font-size:14px; line-height:1.6; }
+.confirm-dialog-card > p strong { color:var(--ink-strong); }
+.confirm-dialog-actions { display:flex; justify-content:flex-end; gap:10px; }
+.button-danger { border-color:var(--danger); background:var(--danger); color:white; }
+.button-danger:hover { border-color:#8d2727; background:#8d2727; color:white; }
 .farm-active-pill { color:var(--farm-accent); font-size:11px; font-weight:750; }
 .farm-list-card .button-primary { border-color:var(--farm-accent); background:var(--farm-accent); }
 .farm-list-card .button-primary:hover { border-color:var(--farm-hover); background:var(--farm-hover); color:#fff; }
